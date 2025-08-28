@@ -12,6 +12,10 @@ body {
     margin: 20px;
 }
 
+a {
+    color: inherit;
+}
+
 h1 {
     font-family: 'panoptica';
     font-style: italic;
@@ -31,24 +35,43 @@ h2 {
     margin: 0;
 }
 
+p {
+    font-family: "adobe-caslon-pro", serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
-.header {
-    width: 100%;
-    background-color: #00ff00;
+.panel {
     border-style: solid;
     border-width: 1px;
     border-color: black;
     padding: 20px;
     box-shadow: 5px 5px black;
+    margin: 20px;
+}
+
+.header {
+    background-color: #00ff00;
 }
 
 .footer {
-    width: 100%;
     background-color: #00ff00;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    padding: 10px;
-    box-shadow: 5px 5px black;
     bottom: 0px;
+}
+
+.button {
+    display: inline-block;
+    background-color: blue;
+    width:fit-content;
+    font-family: "panoptica-octagonal", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: white;
+}
+
+.text-box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+
 }
