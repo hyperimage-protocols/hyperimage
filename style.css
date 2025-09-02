@@ -9,21 +9,31 @@
 
 body {
     background-color: whitesmoke;
+    background-image: url('./images/stars.gif');
+    font-family:'Times New Roman', Times, serif;
+    font-size: 1em;
     margin: 20px;
 }
 
 a {
     color: inherit;
+    font-family: "panoptica-octagonal";
+    font-weight: 600;
+    text-decoration: none;
+    color: blue;
 }
+
 
 h1 {
     font-family: 'panoptica';
+    color: white;
     font-style: italic;
-    font-size: 3em;
+    font-size: 6em;
+    margin: 0;
     font-weight: normal;
     text-align: justify;
     text-align-last: justify;
-    margin: 0;
+    text-shadow: 3px 3px #0000ff;
 }
 
 h2 {
@@ -35,6 +45,12 @@ h2 {
     margin: 0;
 }
 
+h6 {
+    font-family: "panoptica-pixel";
+    font-size: 1em;
+    margin: 0;
+}
+
 p {
     font-family: "adobe-caslon-pro", serif;
     font-weight: 400;
@@ -43,15 +59,38 @@ p {
 
 .panel {
     border-style: solid;
+    display: inline-block;
+    width: fit-content;
     border-width: 1px;
-    border-color: black;
+    border-color: blue;
     padding: 20px;
-    box-shadow: 5px 5px black;
+    box-shadow: 5px 5px blue;
     margin: 20px;
 }
 
+.reading {
+    background-color: pink;
+}
+
+.resource {
+    background-color: lemonchiffon;
+}
+
 .header {
-    background-color: #00ff00;
+    background-color: none;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.section {
+    background-color: blue;
+    text-align: center;
+    font-family: "panoptica-octagonal", sans-serif;
+    margin: 20px;
+    padding: 20px;
+    font-weight: 600;
+    font-style: normal;
+    color: white;
 }
 
 .footer {
@@ -61,12 +100,11 @@ p {
 
 .button {
     display: inline-block;
-    background-color: blue;
+    color: white;
     width:fit-content;
     font-family: "panoptica-octagonal", sans-serif;
     font-weight: 600;
     font-style: normal;
-    color: white;
 }
 
 .text-box {
