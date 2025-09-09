@@ -51,12 +51,6 @@ h6 {
     margin: 0;
 }
 
-p {
-    font-family: "adobe-caslon-pro", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
 .panel {
     border-style: solid;
     display: inline-block;
@@ -111,5 +105,6 @@ p {
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: white;
+    width: 800px;
 
 }
