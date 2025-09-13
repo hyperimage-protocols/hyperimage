@@ -11,8 +11,27 @@ body {
     background-color: whitesmoke;
     background-image: url('./images/stars.gif');
     font-family:'Times New Roman', Times, serif;
-    font-size: 1em;
-    margin: 20px;
+    font-weight: 400;
+    font-size: 14pt;
+    margin: 0px;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 14pt;
+}
+
+
+li + li {
+    margin-top: 8pt;
+}
+
+p + p {
+    margin-top: 12pt;
 }
 
 a {
@@ -21,12 +40,13 @@ a {
     font-weight: 600;
     text-decoration: none;
     color: blue;
+    display: inline-block;
 }
 
 
 h1 {
     font-family: 'panoptica';
-    color: white;
+    color: pink;
     font-style: italic;
     font-size: 6em;
     margin: 0;
@@ -51,9 +71,17 @@ h6 {
     margin: 0;
 }
 
+.main {
+    margin-top: 200px;
+    margin-bottom: 80px;
+}
+
+.entry {
+    margin: 80px 0px 20px 0px;
+}
+
 .panel {
     border-style: solid;
-    display: inline-block;
     width: fit-content;
     border-width: 1px;
     border-color: blue;
@@ -71,40 +99,88 @@ h6 {
 }
 
 .header {
-    background-color: none;
-    margin-top: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
     padding: 20px;
+    position: fixed;
 }
 
 .section {
     background-color: blue;
     text-align: center;
     font-family: "panoptica-octagonal", sans-serif;
-    margin: 20px;
     padding: 20px;
     font-weight: 600;
     font-style: normal;
     color: white;
+    margin-bottom: 20px;
 }
 
-.footer {
-    background-color: #00ff00;
-    bottom: 0px;
+#top-links {
+    justify-content: space-between;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .button {
-    display: inline-block;
-    color: white;
-    width:fit-content;
-    font-family: "panoptica-octagonal", sans-serif;
-    font-weight: 600;
-    font-style: normal;
+    font-family: 'panoptica';
+    color: pink;
+    font-style: italic;
+    font-size: 2em;
+    margin: 0;
+    font-weight: normal;
+    text-align: justify;
+    text-align-last: justify;
+    text-shadow: 2px 2px #0000ff;
+}
+
+.text-card-row {
+    display: flex;
+    justify-content: center;
+    margin: 0px 40px 0px 40px;
 }
 
 .text-box {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 40px;
     background-color: white;
     width: 800px;
+}
 
+.footer {
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;    /* hide scroll bar */
+}
+
+.ticker {
+  white-space: nowrap;
+  display: inline-block;
+  color: white;
+  font-size: 1.5rem;
+  padding: 10px 0;
+}
+
+.ticker-wrap {
+  display: inline-block;
+  padding-left: 100%;               /* start off-screen */
+  animation: scroll-left 20s linear infinite;
+}
+
+.ticker-item {
+  display: inline-block;
+  font-family: "panoptica-octagonal";
+  color: #00ff00;
+  text-shadow:  2px 2px 1px black;
+  padding: 0 2rem;                  /* spacing between items */
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
