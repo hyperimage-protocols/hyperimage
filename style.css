@@ -43,6 +43,12 @@ a {
     display: inline-block;
 }
 
+b {
+    font-family: panoptica-sans, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
 
 h1 {
     font-family: 'panoptica';

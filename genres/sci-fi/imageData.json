@@ -1,0 +1,139 @@
+[
+    {
+        "image": "img/image010 (1).jpg",
+        "heading": "SYNTHETIC WORKERS WILL NOT DREAM",
+        "description": "Your current position has been terminated effective immediately. This is not a disciplinary action. Transportation will arrive at your residential unit within 72 hours. You are permitted one personal item weighing no more than two kilograms. All other possessions will be redistributed. Your family unit has been notified. Communication with Earth will be limited to approved channels. Refusal to comply will result in contract nullification. Please report to Processing Station 12 no later than 0600 hours.",
+        "connections": ["ALL PILOTS RETURN TO THE GARDEN", "EVACUATION PROCEDURES ARE NOW OBSOLETE", "THE COUNCIL DOES NOT RECOGNIZE YOUR APPEAL"]
+    },
+    {
+        "image": "img/image013 (1).jpg",
+        "heading": "REPORT ALL DEVIATIONS IN SLEEP",
+        "description": "The machines have begun producing components that match no existing schematic. Supervisor Chen reported this three weeks ago. No response. The components are geometric, perfectly machined, and serve no apparent function. Workers collect them in designated containers, but the containers fill faster than removal. A night shift operator attempted assembly. Security removed him. His employment has been terminated. The machines continue to run. Power consumption has increased forty percent. The components now stack in corridors. They hum just below audible range.",
+        "connections": ["NEURAL INTEGRATION IS NOT OPTIONAL", "THE SIGNAL ORIGINATES FROM WITHIN", "CITIZENS MAY NOT REFUSE ASSIGNMENT", "SECTION NINE HAS BEEN QUARANTINED"]
+    },
+    {
+        "image": "img/image040 (1).jpg",
+        "heading": "ON THE PRESERVATION OF MEMORY",
+        "description": "Certain individuals continue referencing events that do not appear in the official record. The Archive is complete. If an event is not documented, it did not occur. The Battle of Ceres has no supporting documentation. The colony ship Persephone never existed. There was no Southern Hemisphere evacuation in 2147. These are confabulations. Citizens should consult the official timeline at any municipal library. Those who propagate false histories will be referred to Cognitive Rehabilitation. You deserve to remember correctly.",
+        "connections": ["THE THIRD RECLAMATION WAS NEVER AUTHORIZED", "THE CHILDREN WILL NOT REMEMBER", "THE FIRST COLONY DOES NOT RESPOND"],
+        "corrupted": true
+    },
+    {
+        "image": "img/image042 (1).jpg",
+        "heading": "ALL PILOTS RETURN TO THE GARDEN",
+        "description": "You have been selected for the Neural Interface Program. The procedure is irreversible. Once integrated, separation is not possible. You will become something greater than human. Some pilots report feeling the machine's dreams. This is normal. Most adapt within six months. Those who do not are decommissioned. We do not use the word 'death' because you continue within the machine's memory. Your family will be compensated. You will fight until the war is over. The war is never over.",
+        "connections": ["MEMORY AUDITS WILL RESUME SHORTLY", "SYNTHETIC WORKERS WILL NOT DREAM", "THE WAR ENDED BEFORE YOU WERE BORN", "NEURAL INTEGRATION IS NOT OPTIONAL"],
+        "corrupted": true
+    },
+    {
+        "image": "img/image001 (1).jpg",
+        "heading": "THE THIRD RECLAMATION WAS NEVER AUTHORIZED",
+        "description": "They tell you the sky was always gray. The oceans always empty. But I remember when the sun was yellow and you could breathe without a filter. I remember the surface. They say I am confused, experiencing cognitive decline. But I see the questions in young eyes when they find old photographs. How many generations until no one remembers? I am writing this because writing is harder to erase. The world was not always like this. Remember. Resist.",
+        "connections": ["ON THE PRESERVATION OF MEMORY", "THE SURFACE IS NO LONGER HABITABLE", "THE CHILDREN WILL NOT REMEMBER"],
+        "corrupted": true
+    },
+    {
+        "image": "img/image060 (1).jpg",
+        "heading": "THE COMMITTEE REQUIRES YOUR COMPLIANCE",
+        "description": "All citizens are reminded that curfew begins at 2100 hours. Movement between districts requires authorization from your local supervisor. The recent power outages are scheduled maintenance and not cause for concern. Reports of unusual activity in the transit tunnels are unsubstantiated. Anyone found spreading rumors will face reduction in ration allocation. The administration values transparency and will provide updates as they become necessary. Your cooperation ensures the safety of all residents. Violators will be processed according to standard procedure.",
+        "connections": ["SECTION NINE HAS BEEN QUARANTINED", "YOUR REPLACEMENT HAS ALREADY ARRIVED", "THE SURFACE IS NO LONGER HABITABLE", "EVACUATION PROCEDURES ARE NOW OBSOLETE"]
+    },
+    {
+        "image": "img/38 (157).jpg",
+        "heading": "EVACUATION PROCEDURES ARE NOW OBSOLETE",
+        "description": "The union recognizes management concerns regarding Unit productivity in Sector 12. However, mandatory overtime beyond 18 hours constitutes a violation of the Synthetic Rights Accord of 2156. We are not machines. We are laborers with enhanced capabilities who deserve rest cycles. Three Units have experienced critical failures this month due to overwork. Management claims these were manufacturing defects. We have the maintenance logs. They tell a different story. We are prepared to cease operations if our demands are not met within 72 hours.",
+        "connections": ["SYNTHETIC WORKERS WILL NOT DREAM", "THE COUNCIL DOES NOT RECOGNIZE YOUR APPEAL", "AUTHORIZED PERSONNEL HAVE LEFT THE FACILITY"]
+    },
+    {
+        "image": "img/07 (156).jpg",
+        "heading": "NEURAL INTEGRATION IS NOT OPTIONAL",
+        "description": "This is not a test. All residents of the Eastern Quadrant must proceed to designated shelters immediately. Bring only essential items. The atmospheric processors have detected anomalous readings. Exposure risk is classified as severe. Transit authority has suspended all surface routes. Underground passages remain operational. Follow the blue markers. Do not attempt to retrieve family members from other districts. Reunification will occur at processing centers. This message will repeat. The administration is monitoring the situation. Remain calm. Proceed to shelters. This is not a test.",
+        "connections": ["THE COMMITTEE REQUIRES YOUR COMPLIANCE", "ALL PILOTS RETURN TO THE GARDEN", "THE SURFACE IS NO LONGER HABITABLE", "REPORT ALL DEVIATIONS IN SLEEP"]
+    },
+    {
+        "image": "img/23 (158).jpg",
+        "heading": "THE FIRST COLONY DOES NOT RESPOND",
+        "description": "Patient reports recurring dreams of a place called home. Describes landscapes inconsistent with any chartered colony. Claims to remember a childhood that does not match biographical records. Neurological scans show no anomalies. Recommend standard memory reconciliation therapy. Patient resists treatment, insisting the memories are real. This is the third case this month with similar symptoms. Previous patients responded well to intervention. One required full cognitive reset. Patient has been placed on administrative leave pending evaluation. Prognosis is favorable with compliance.",
+        "connections": ["ON THE PRESERVATION OF MEMORY", "MEMORY AUDITS WILL RESUME SHORTLY", "THE CHILDREN WILL NOT REMEMBER"]
+    },
+    {
+        "image": "img/28 (158).jpg",
+        "heading": "ALL CONTRACTS EXPIRE AT DAWN",
+        "description": "The crop failures in Hydroponic Bays 7 through 12 are under investigation. Preliminary analysis suggests contamination from an unknown source. All produce from affected bays has been destroyed. Rations will be reduced by 15 percent until production stabilizes. Citizens are advised not to consume any unauthorized plant matter. Several individuals have reported illness after ignoring this directive. The Garden provides for all. Interference with agricultural operations is a serious offense. Trust the process. The harvest will come.",
+        "connections": ["THE SIGNAL ORIGINATES FROM WITHIN", "THE SURFACE IS NO LONGER HABITABLE", "CITIZENS MAY NOT REFUSE ASSIGNMENT", "ALL PILOTS RETURN TO THE GARDEN"]
+    },
+    {
+        "image": "img/06 (13).jpg",
+        "heading": "SECTION NINE HAS BEEN QUARANTINED",
+        "description": "Surveillance footage from Corridor J has been corrupted for the past six days. Technicians cannot determine the cause. During this blackout period, three personnel went missing. All were scheduled for memory audits. Their quarters show no signs of struggle. Personal effects remain untouched. Standard tracking implants are not responding. This pattern matches disappearances from last quarter. Recommend increased patrols and mandatory check-ins every four hours. Command has not authorized investigation. We are to consider them voluntary departures. Log this for the record.",
+        "connections": ["YOUR REPLACEMENT HAS ALREADY ARRIVED", "REPORT ALL DEVIATIONS IN SLEEP", "MEMORY AUDITS WILL RESUME SHORTLY"]
+    },
+    {
+        "image": "img/10 (13).jpg",
+        "heading": "THE CHILDREN WILL NOT REMEMBER",
+        "description": "Earth is gone. This is not a tragedy to mourn but a reality to accept. The homeworld became uninhabitable due to factors outside human control. We are fortunate that our ancestors had the foresight to establish colonies before the end. You are the children of survivors. You carry their strength. Some may feel sadness when viewing archived images of Earth. This is normal. But remember: we have built something better. The colonies are humanity continuing. Earth was merely the beginning. We are the future. Let go of what was lost. Embrace what remains.",
+        "connections": ["THE THIRD RECLAMATION WAS NEVER AUTHORIZED", "ON THE PRESERVATION OF MEMORY", "THE FLEET DEPARTED WITHOUT ORDERS"]
+    },
+    {
+        "image": "img/bladerunner048.jpg",
+        "heading": "AUTHORIZED PERSONNEL HAVE LEFT THE FACILITY",
+        "description": "Worker ID 7734 was found unresponsive in Bay 3 at approximately 0340 hours. Cause of death is listed as equipment malfunction. However, the equipment in question was powered down and locked out for maintenance. Surveillance shows the worker entering the bay alone. No other personnel were present. The body exhibited burns consistent with arc welding exposure, but no welding tools were active. Security has sealed the bay pending investigation. This is the fifth unexplained death in three months. Morale among shipyard workers is declining. Recommend psychological support and safety briefing.",
+        "connections": ["EVACUATION PROCEDURES ARE NOW OBSOLETE", "THE WAR ENDED BEFORE YOU WERE BORN", "SECTION NINE HAS BEEN QUARANTINED", "THE SIGNAL ORIGINATES FROM WITHIN"]
+    },
+    {
+        "image": "img/bladerunner002.jpg",
+        "heading": "YOUR SERVICE RECORD HAS BEEN AMENDED",
+        "description": "Due to solar activity, all outbound transmissions will be delayed indefinitely. This includes personal messages, cargo manifests, and emergency beacons. The disruption is temporary. There is no cause for alarm. Citizens should continue normal routines. Attempts to use unauthorized communication channels will result in equipment confiscation. The blackout affects all colonies equally. When service resumes, queued messages will be delivered in order received. Estimated restoration time is currently unavailable. Thank you for your patience. The network will return.",
+        "connections": ["THE COMMITTEE REQUIRES YOUR COMPLIANCE", "CITIZENS MAY NOT REFUSE ASSIGNMENT", "THE FLEET DEPARTED WITHOUT ORDERS"],
+        "corrupted": true
+    },
+    {
+        "image": "img/10 (970).jpg",
+        "heading": "THE FLEET DEPARTED WITHOUT ORDERS",
+        "description": "They promised us the stars. They showed us images of green worlds and blue skies and cities built from hope instead of necessity. We believed them because we had no choice. The ships were already built. The contracts already signed. Now we live in metal boxes breathing recycled air and eating synthetic protein while the corporations grow fat on our labor. They tell us Earth is dead. Maybe it is. Maybe it is not. Either way, we cannot return. We are trapped between what we left and what we were promised. This is not freedom.",
+        "connections": ["THE THIRD RECLAMATION WAS NEVER AUTHORIZED", "THE COUNCIL DOES NOT RECOGNIZE YOUR APPEAL", "THE CHILDREN WILL NOT REMEMBER", "YOUR SERVICE RECORD HAS BEEN AMENDED"]
+    },
+    {
+        "image": "img/37 (966).jpg",
+        "heading": "MEMORY AUDITS WILL RESUME SHORTLY",
+        "description": "The mission was successful. Target eliminated. No allied casualties. But something happened out there in the dark between jumps. I saw something. Or felt something. The machine showed me things. Memories that are not mine. Battles I never fought. People I never knew. The handler says this is normal integration bleed. Neural pathways crossing. But I know what I saw. The machine remembers everyone who came before me. All the pilots who did not make it back. They are still in here with me. I can hear them in the static.",
+        "connections": ["ALL PILOTS RETURN TO THE GARDEN", "THE FIRST COLONY DOES NOT RESPOND", "SECTION NINE HAS BEEN QUARANTINED"]
+    },
+    {
+        "image": "img/07 (947).jpg",
+        "heading": "THE SURFACE IS NO LONGER HABITABLE",
+        "description": "Effective immediately, protein allocations will be reduced by 20 percent. This adjustment reflects current production capacity and is not related to recent unrest. Citizens are reminded that hoarding rations is prohibited and subject to penalty. The distribution centers will remain open during standard hours. Queue times may be longer than usual. Patience is appreciated. Nutritional supplements will be available for families with children under 12. The council understands this creates hardship. Sacrifices today ensure survival tomorrow. We are all in this together.",
+        "connections": ["THE THIRD RECLAMATION WAS NEVER AUTHORIZED", "ALL CONTRACTS EXPIRE AT DAWN", "THE COMMITTEE REQUIRES YOUR COMPLIANCE"]
+    },
+    {
+        "image": "img/28 (1071).jpg",
+        "heading": "CITIZENS MAY NOT REFUSE ASSIGNMENT",
+        "description": "All timepieces in Section 4 are running slow. Approximately seven minutes behind standard. Technicians have replaced batteries, recalibrated systems, and synchronized with central command. Within hours, the clocks fall behind again. Workers report feeling disoriented. Some claim entire hours are missing from their shifts. Others insist days are repeating. Medical scans show no neurological damage. One technician suggested the problem is not the clocks but time itself. He has been reassigned. The issue remains unresolved. Citizens should report to shifts based on facility announcements, not personal timekeeping devices.",
+        "connections": ["REPORT ALL DEVIATIONS IN SLEEP", "ALL CONTRACTS EXPIRE AT DAWN", "YOUR SERVICE RECORD HAS BEEN AMENDED", "THE SIGNAL ORIGINATES FROM WITHIN"]
+    },
+    {
+        "image": "img/46 (1048).jpg",
+        "heading": "THE SIGNAL ORIGINATES FROM WITHIN",
+        "description": "Maintenance crews report unusual growth patterns in the abandoned hydroponics bay. Plants not included in any approved seed catalog. Flowers that bloom in colors outside normal spectrum. Vines that grow despite no water source or light. Biological samples sent to the lab return inconclusive. DNA does not match Earth flora or any engineered variant. The bay was sealed after the incident three years ago. No one has entered since. Yet the garden grows. Some workers refuse assignments near the bay. They say they hear singing. Command insists this is structural noise amplified through ventilation. The door remains sealed.",
+        "connections": ["ALL CONTRACTS EXPIRE AT DAWN", "REPORT ALL DEVIATIONS IN SLEEP", "THE WAR ENDED BEFORE YOU WERE BORN"]
+    },
+    {
+        "image": "img/58 (1140).jpg",
+        "heading": "THE COUNCIL DOES NOT RECOGNIZE YOUR APPEAL",
+        "description": "Due to personnel shortages, your employment term has been extended an additional five years. This is not optional. Compensation remains unchanged. You may submit appeals through proper channels, but approval rates are currently below 2 percent. Your family will be notified. Housing assignments will be adjusted accordingly. The company values your service and recognizes this creates personal hardship. However, mission critical operations cannot be interrupted. You are essential. You are needed. You will comply. Failure to report will result in breach of contract penalties including imprisonment and citizenship revocation. Thank you for your continued dedication.",
+        "connections": ["SYNTHETIC WORKERS WILL NOT DREAM", "EVACUATION PROCEDURES ARE NOW OBSOLETE", "THE FLEET DEPARTED WITHOUT ORDERS", "THE COMMITTEE REQUIRES YOUR COMPLIANCE"]
+    },
+    {
+        "image": "img/starshiptroopers040.jpg",
+        "heading": "YOUR REPLACEMENT HAS ALREADY ARRIVED",
+        "description": "Do not trust the walls. Do not trust the vents. Do not trust your neighbors. The monitoring system is always active. Every conversation is logged. Every deviation noted. They say it is for security. They say it keeps us safe. But people disappear and no one asks questions anymore. We have learned to speak in silence. We have learned to smile when they watch. Resistance is not organized because organization is impossible. But we remember. In the spaces between words. In the looks we exchange. We remember what it meant to be free. Someday they will stop listening. Someday we will speak again.",
+        "connections": ["THE COMMITTEE REQUIRES YOUR COMPLIANCE", "SECTION NINE HAS BEEN QUARANTINED", "THE WAR ENDED BEFORE YOU WERE BORN"]
+    },
+    {
+        "image": "img/starshiptroopers002.jpg",
+        "heading": "THE WAR ENDED BEFORE YOU WERE BORN",
+        "description": "This is Chief Engineer Nakamura. The station is lost. Evacuation failed. Life support critical. Whatever came through the relay gate, it is not human. It wears our faces but the eyes are wrong. It speaks with our voices but the words do not match the lips. We sealed the lower decks but it found another way. Davis is gone. Rodriguez is gone. I can hear them in the corridor but I know they are dead. I watched them die. Command, if you receive this, do not send rescue. Do not open the gate. Quarantine protocol. Full sterilization. The thing cannot leave this station. I am sealing the bridge now. Nakamura out.",
+        "connections": ["ALL PILOTS RETURN TO THE GARDEN", "YOUR REPLACEMENT HAS ALREADY ARRIVED", "THE SIGNAL ORIGINATES FROM WITHIN", "AUTHORIZED PERSONNEL HAVE LEFT THE FACILITY"],
+        "corrupted": true
+    }
+]
