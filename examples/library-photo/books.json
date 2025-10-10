@@ -1,0 +1,58 @@
+[
+  {
+    "shelf": "bookshelf-1.jpg",
+    "cover": "img/library/books/61DcQeeDUoL._SL1500_.jpg",
+    "title": "Book Title 1",
+    "author": "Author Name 1",
+    "link": "img/library/books/61DcQeeDUoL._SL1500_.jpg"
+  },
+  {
+    "shelf": "bookshelf-2.jpg",
+    "cover": "img/library/books/71R7Oz5bNPL._SL1500_.jpg",
+    "title": "Book Title 2",
+    "author": "Author Name 2",
+    "link": "img/library/books/71R7Oz5bNPL._SL1500_.jpg"
+  },
+  {
+    "shelf": "bookshelf-3.jpg",
+    "cover": "img/library/books/91H4wpgrxgL._SL1500_.jpg",
+    "title": "Book Title 3",
+    "author": "Author Name 3",
+    "link": "img/library/books/91H4wpgrxgL._SL1500_.jpg"
+  },
+  {
+    "shelf": "bookshelf-4.jpg",
+    "cover": "img/library/books/91NSfg8bqvL._SL1500_.jpg",
+    "title": "Book Title 4",
+    "author": "Author Name 4",
+    "link": "img/library/books/91NSfg8bqvL._SL1500_.jpg"
+  },
+  {
+    "shelf": "bookshelf-5.jpg",
+    "cover": "img/library/books/91nvYMiQVCL._SL1500_.jpg",
+    "title": "Book Title 5",
+    "author": "Author Name 5",
+    "link": "img/library/books/91nvYMiQVCL._SL1500_.jpg"
+  },
+  {
+    "shelf": "bookshelf-6.jpg",
+    "cover": "img/library/books/91xhGWejJCL._SL1500_.jpg",
+    "title": "Book Title 6",
+    "author": "Author Name 6",
+    "link": "img/library/books/91xhGWejJCL._SL1500_.jpg"
+  },
+  {
+    "shelf": "bookshelf-7.jpg",
+    "cover": "img/library/books/91zai6a+EcL._SL1500_.jpg",
+    "title": "Book Title 7",
+    "author": "Author Name 7",
+    "link": "img/library/books/91zai6a+EcL._SL1500_.jpg"
+  },
+  {
+    "shelf": "bookshelf-8.jpg",
+    "cover": "img/library/books/A1DSZjxbrzL._SL1500_.jpg",
+    "title": "Book Title 8",
+    "author": "Author Name 8",
+    "link": "img/library/books/A1DSZjxbrzL._SL1500_.jpg"
+  }
+]

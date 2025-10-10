@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ring Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="controls">
+        <div class="control-group">
+            <label>
+                <input type="checkbox" id="toggleInnerBoxes">
+                Show Inner Boxes
+            </label>
+        </div>
+        <div class="control-group">
+            <label for="startAngleSlider">Start Angle: <span id="startAngleValue">-45</span>°</label>
+            <input type="range" id="startAngleSlider" min="-180" max="0" value="-45" step="1">
+        </div>
+        <div class="control-group">
+            <label for="hoverRotateSlider">Hover Rotate Angle: <span id="hoverRotateValue">15</span>°</label>
+            <input type="range" id="hoverRotateSlider" min="0" max="45" value="15" step="1">
+        </div>
+        <div class="control-group">
+            <label>Hover Behavior:</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="hoverBehavior" value="uniform" checked>
+                    Uniform Rotation
+                </label>
+                <label>
+                    <input type="radio" name="hoverBehavior" value="compress">
+                    Compress
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="ring.png" alt="Ring">
+        <div class="inner-box"></div>
+    </div>
+
+    <div class="image-container">
+        <img src="img/r1.png" alt="r1">
+        <div class="inner-box"></div>
+    </div>
+
+    <div class="image-container">
+        <img src="img/r2.png" alt="r2">
+        <div class="inner-box"></div>
+    </div>
+
+    <div class="image-container">
+        <img src="img/r3.png" alt="r3">
+        <div class="inner-box"></div>
+    </div>
+
+    <div class="image-container">
+        <img src="img/r4.png" alt="r4">
+        <div class="inner-box"></div>
+    </div>
+
+    <div class="image-container">
+        <img src="img/r5.png" alt="r5">
+        <div class="inner-box"></div>
+    </div>
+
+    <div class="image-container">
+        <img src="img/r6.png" alt="r6">
+        <div class="inner-box"></div>
+    </div>
+
+    <div class="image-container">
+        <img src="img/r7.png" alt="r7">
+        <div class="inner-box"></div>
+    </div>
+
+    <div class="image-container">
+        <img src="img/r8.png" alt="r8">
+        <div class="inner-box"></div>
+    </div>
+
+    <div class="image-container">
+        <img src="img/r9.png" alt="r9">
+        <div class="inner-box"></div>
+    </div>
+
+    <div class="image-container">
+        <img src="img/r10.png" alt="r10">
+        <div class="inner-box"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

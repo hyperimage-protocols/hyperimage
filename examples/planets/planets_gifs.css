@@ -1,0 +1,92 @@
+html, body {
+    background: transparent;
+    margin: 0;
+    width: 100vw;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000 url('planets/stars2.jpg') center center / cover no-repeat;
+    z-index: -10;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+/* Top bar styling for text readability and appearance */
+#top-bar {
+    width: 50vw;
+
+    color: yellow;
+
+    text-align: justify;
+    margin: 0 auto;
+    font-size: 2rem;
+    line-height: 1.2;
+    padding: 2rem 2rem 1rem 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 10;
+}
+#gif-canvas-back2 {
+    width: 2400px;
+    height: 6000px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#gif-canvas-back {
+    width: 2400px;
+    height: 6000px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    overflow: hidden;
+    z-index: 2;
+}
+
+#gif-canvas {
+    width: 2400px;
+    height: 6000px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    overflow: hidden;
+    z-index: 3;
+}
+
+#gif-canvas-front {
+    width: 2400px;
+    height: 12000px; /* Taller to account for faster movement */
+    position: fixed;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    background: transparent;
+    overflow: hidden;
+    z-index: 20;
+}
+.planet-gif {
+    position: absolute;
+    height: var(--gif-height, 150px);
+}

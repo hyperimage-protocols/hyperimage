@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lake Images</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="image-container" data-layer="5">
+        <img src="img/lake-5.png" alt="Lake 5">
+    </div>
+    <div class="image-container" data-layer="4">
+        <img src="img/lake-4.png" alt="Lake 4">
+    </div>
+    <div class="image-container" data-layer="3">
+        <img src="img/lake-3.png" alt="Lake 3">
+    </div>
+    <div class="image-container" data-layer="2">
+        <img src="img/lake-2.png" alt="Lake 2">
+    </div>
+    <div class="image-container" data-layer="1">
+        <div class="image-wrapper">
+            <div class="edge-blocker edge-blocker-left"></div>
+            <img src="img/lake-1.png" alt="Lake 1">
+            <div class="edge-blocker edge-blocker-right"></div>
+        </div>
+    </div>
+
+    <div class="animation-layer" id="animation-layer"></div>
+
+    <div class="mask-container">
+        <div class="mask-top"></div>
+        <div class="mask-bottom"></div>
+        <div class="mask-left"></div>
+        <div class="mask-right"></div>
+    </div>
+
+    <div class="vignette"></div>
+
+    <div class="text-overlay" id="text-overlay"></div>
+
+    <div class="timeline-overlay">Timeline: <span id="timeline-position">0</span></div>
+
+    <!-- Temporary scrubber for development -->
+    <div class="timeline-scrubber">
+        <input type="range" id="timeline-slider" min="-2000" max="2000" value="0" step="1">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

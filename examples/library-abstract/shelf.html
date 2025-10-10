@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Shelf</title>
+    <link rel="stylesheet" href="shelf.css">
+</head>
+<body>
+    <div class="sidebar-bar">
+        <span class="sidebar-arrow">&gt;</span>
+    </div>
+    <div class="sidebar">
+        <span class="sidebar-arrow">&lt;</span>
+        <div class="sidebar-content">
+            <h3>Filter by Genre</h3>
+            <label>
+                <input type="checkbox" id="filter-fiction" checked>
+                Fiction
+            </label>
+            <label>
+                <input type="checkbox" id="filter-nonfiction" checked>
+                Nonfiction
+            </label>
+
+            <h3>Sort by</h3>
+            <label>
+                <input type="radio" name="sort" id="sort-author" checked>
+                Author
+            </label>
+            <label>
+                <input type="radio" name="sort" id="sort-title">
+                Title
+            </label>
+        </div>
+    </div>
+    <div class="shelf-container"></div>
+    <div class="book-card">
+        <div class="book-card-content">
+            <div class="book-card-edge"></div>
+            <div class="book-card-inner">
+                <div class="book-card-top">
+                    <h2 class="card-title"></h2>
+                    <p class="card-author"></p>
+                </div>
+                <div class="book-card-bottom">
+                    <p class="card-year"></p>
+                    <p class="card-genre"></p>
+                    <p class="card-pages"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="shelf.js"></script>
+</body>
+</html>
