@@ -1,9 +1,11 @@
 const containers = document.querySelectorAll('.image-container');
 const offsets = [0, 0, 0, 0, 0]; // Track horizontal offset for each layer
 const timelineDisplay = document.getElementById('timeline-position');
+const timelineSlider = document.getElementById('timeline-slider');
+const navigationArrows = document.getElementById('navigation-arrows');
 
 // Initial timeline position (edit this to change where the page loads)
-const initialTimelinePosition = 2000;
+const initialTimelinePosition = 1900;
 
 // Interval in milliseconds for each layer (how often each layer moves 1px)
 const layerIntervals = {
@@ -40,14 +42,15 @@ function initializePosition() {
     });
 
     timelineDisplay.textContent = timelinePosition;
+    timelineSlider.value = timelinePosition;
 }
 
 // Call initialization when page loads
 initializePosition();
 
 // Text display settings (edit these manually)
-const textDuration = 80; // How long text is fully visible (in timeline units)
-const fadeDuration = 30; // How long fade in/out lasts (in timeline units)
+const textDuration = 120; // How long text is fully visible (in timeline units)
+const fadeDuration = 50; // How long fade in/out lasts (in timeline units)
 
 // Animation settings (edit these manually)
 const animationInterval = 400; // How often to trigger pole animation (in timeline units)
@@ -128,6 +131,16 @@ function updateTextVisibility() {
         p.style.opacity = opacity;
         p.style.display = opacity > 0 ? 'inline-block' : 'none';
     });
+
+    // Update navigation arrows visibility - visible until 1850, fade out by 1750
+    if (timelinePosition >= 1850) {
+        navigationArrows.style.opacity = 1;
+    } else if (timelinePosition >= 1750) {
+        const progress = (timelinePosition - 1750) / 100;
+        navigationArrows.style.opacity = progress;
+    } else {
+        navigationArrows.style.opacity = 0;
+    }
 }
 
 loadText();
@@ -236,7 +249,6 @@ function animateObject(imageSrc, direction) {
 }
 
 // Temporary timeline scrubber for development
-const timelineSlider = document.getElementById('timeline-slider');
 timelineSlider.addEventListener('input', (e) => {
     const targetPosition = parseInt(e.target.value);
     const baseInterval = layerIntervals[1];
@@ -276,18 +288,19 @@ function startMovement(direction) {
             // Update offset
             offsets[containerIndex] += currentDirection;
 
-            // Clamp offset: left limit is -100vw, right limit is 100vw
-            if (offsets[containerIndex] < -window.innerWidth) {
-                offsets[containerIndex] = -window.innerWidth;
-            } else if (offsets[containerIndex] > window.innerWidth) {
-                offsets[containerIndex] = window.innerWidth;
-            }
-
             container.style.transform = `translateX(${offsets[containerIndex]}px)`;
 
             // Update timeline position based on layer 1 (front image)
             if (layer === 1) {
                 timelinePosition = -offsets[containerIndex]; // Negative offset = positive timeline
+
+                // Stop if we hit the limits
+                if (timelinePosition < -1900 || timelinePosition > 1900) {
+                    stopMovement();
+                    // Clamp to exact limit
+                    timelinePosition = Math.max(-1900, Math.min(1900, timelinePosition));
+                }
+
                 timelineDisplay.textContent = timelinePosition;
                 timelineSlider.value = timelinePosition;
                 updateTextVisibility();
@@ -313,6 +326,11 @@ window.addEventListener('keydown', (e) => {
     e.preventDefault();
 
     const direction = e.key === 'ArrowRight' ? -1 : 1; // right arrow = move right (landscape left), left arrow = move left (landscape right)
+
+    // Don't move if we're at the limits
+    if (direction === -1 && timelinePosition >= 1900) return; // Right arrow at max
+    if (direction === 1 && timelinePosition <= -1900) return; // Left arrow at min
+
     startMovement(direction);
 });
 

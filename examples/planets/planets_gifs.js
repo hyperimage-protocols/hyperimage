@@ -69,7 +69,7 @@ function placeGifsInCanvas(canvasId, gifHeight, numGifs, gifSource = null) {
             img.style.top = Math.floor(i * ySpacing) + 'px';
 
             // Start with frame 0
-            img.src = '../satellite frames/sat-frame000.png';
+            img.src = 'satellite frames/sat-frame000.png';
 
             // Store satellite object for frame control
             satelliteObjects.push({
@@ -79,7 +79,7 @@ function placeGifsInCanvas(canvasId, gifHeight, numGifs, gifSource = null) {
         } else {
             // For other layers, keep random Y and use GIF
             img.style.top = Math.floor(Math.random() * (canvasHeight - gifHeight)) + 'px';
-            img.src = `../planets/${gifFile}`;
+            img.src = `planets/${gifFile}`;
         }
 
         canvas.appendChild(img);
@@ -158,7 +158,7 @@ function smoothScroll() {
             satelliteObjects.forEach(satObj => {
                 satObj.currentFrame = (satObj.currentFrame + framesToAdvance) % SATELLITE_FRAME_COUNT;
                 const frameNum = satObj.currentFrame.toString().padStart(3, '0');
-                satObj.img.src = `../satellite frames/sat-frame${frameNum}.png`;
+                satObj.img.src = `satellite frames/sat-frame${frameNum}.png`;
             });
         }
     }

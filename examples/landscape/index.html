@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lake Images</title>
+    <title>Walden</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,15 +36,24 @@
         <div class="mask-right"></div>
     </div>
 
-    <div class="vignette"></div>
+    <div class="vignette">
+        <div class="navigation-arrows" id="navigation-arrows">
+            <div class="arrow arrow-up">↑</div>
+            <div class="arrow-row">
+                <div class="arrow arrow-left">←</div>
+                <div class="arrow arrow-down">↓</div>
+                <div class="arrow arrow-right">→</div>
+            </div>
+        </div>
+    </div>
 
     <div class="text-overlay" id="text-overlay"></div>
 
-    <div class="timeline-overlay">Timeline: <span id="timeline-position">0</span></div>
+    <div class="timeline-overlay"><span id="timeline-position">0</span>px</div>
 
     <!-- Temporary scrubber for development -->
     <div class="timeline-scrubber">
-        <input type="range" id="timeline-slider" min="-2000" max="2000" value="0" step="1">
+        <input type="range" id="timeline-slider" min="-1900" max="1900" value="0" step="1">
     </div>
 
     <script src="script.js"></script>

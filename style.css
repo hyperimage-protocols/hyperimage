@@ -20,6 +20,13 @@ p {
     margin: 0;
 }
 
+a p {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: initial;
+    margin-top: 12pt;
+}
+
 ul {
     list-style-type: square;
     padding-left: 14pt;
@@ -104,6 +111,10 @@ h6 {
     background-color: lemonchiffon;
 }
 
+.example {
+    flex: 1;
+}
+
 .header {
     top: 0;
     left: 0;
@@ -151,6 +162,14 @@ h6 {
     padding: 40px;
     background-color: white;
     width: 800px;
+}
+
+.note {
+    padding: 40px;
+    width: 800px;
+    font-style: italic;
+    background-color: blue;
+    color: white;
 }
 
 .footer {
