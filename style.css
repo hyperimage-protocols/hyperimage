@@ -56,6 +56,10 @@ b {
     font-style: normal;
 }
 
+.current {
+    text-decoration: underline;
+}
+
 
 h1 {
     font-family: 'panoptica';
@@ -150,6 +154,57 @@ h6 {
     text-align: justify;
     text-align-last: justify;
     text-shadow: 2px 2px #0000ff;
+}
+
+.project-columns {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 240px;
+}
+
+.project-container {
+    width: auto;
+    flex: 1;
+    max-width: 600px;
+}
+
+.project-header {
+    padding: 20px;
+    background-color: blue;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: blue;
+    box-shadow: 5px 5px blue;
+    font-family: "panoptica-octagonal";
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.project-row {
+    border-style: solid;
+    border-width: 1px;
+    border-color: blue;
+    padding: 20px;
+    box-shadow: 5px 5px blue;
+    margin: 20px;
+    background-color: lemonchiffon;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-row .project-link {
+    font-family: "panoptica-octagonal";
+    font-weight: 600;
+    color: blue;
+    font-size: 1em;
+    text-shadow: none;
 }
 
 .text-card-row {

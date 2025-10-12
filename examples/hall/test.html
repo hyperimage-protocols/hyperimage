@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: white;
+            color: black;
+            font-family: monospace;
+        }
+
+        .test-container {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .test-image {
+            max-width: 800px;
+            max-height: 600px;
+        }
+
+        input {
+            width: 400px;
+            padding: 5px;
+            font-family: monospace;
+        }
+
+        button {
+            padding: 5px 15px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Display Test</h1>
+
+    <div>
+        <label for="imagePath">Image Path:</label><br>
+        <input type="text" id="imagePath" value="svg/3d-wireframe/viennese-lion-3d-wireframe.svg" />
+        <button onclick="loadImage()">Load</button>
+    </div>
+
+    <div style="margin-top: 10px;">
+        <label>
+            <input type="checkbox" id="blueStroke" onchange="toggleBlueStroke()" />
+            Blue stroke color
+        </label>
+    </div>
+
+    <div class="test-container">
+        <h2>Image Preview</h2>
+        <object id="testImage" class="test-image" data="" type="image/svg+xml">
+            <img src="" alt="Fallback image" />
+        </object>
+        <div id="imageInfo"></div>
+    </div>
+
+    <script>
+        function loadImage() {
+            const path = document.getElementById('imagePath').value;
+            const obj = document.getElementById('testImage');
+            const info = document.getElementById('imageInfo');
+
+            obj.data = path;
+            info.textContent = 'Loading...';
+
+            obj.onload = function() {
+                info.textContent = 'Loaded successfully';
+                // Apply blue stroke if checkbox is checked
+                if (document.getElementById('blueStroke').checked) {
+                    applyBlueStroke();
+                }
+            };
+
+            obj.onerror = function() {
+                info.textContent = 'Error: Failed to load image';
+            };
+        }
+
+        function applyBlueStroke() {
+            const obj = document.getElementById('testImage');
+            try {
+                const svgDoc = obj.contentDocument;
+                if (svgDoc) {
+                    const elements = svgDoc.querySelectorAll('[stroke]');
+                    elements.forEach(el => {
+                        el.setAttribute('stroke', '#0066ff');
+                    });
+                }
+            } catch (e) {
+                console.error('Could not access SVG content:', e);
+            }
+        }
+
+        function removeBlueStroke() {
+            const obj = document.getElementById('testImage');
+            try {
+                const svgDoc = obj.contentDocument;
+                if (svgDoc) {
+                    const elements = svgDoc.querySelectorAll('[stroke]');
+                    elements.forEach(el => {
+                        el.setAttribute('stroke', '#000000');
+                    });
+                }
+            } catch (e) {
+                console.error('Could not access SVG content:', e);
+            }
+        }
+
+        function toggleBlueStroke() {
+            const checkbox = document.getElementById('blueStroke');
+
+            if (checkbox.checked) {
+                applyBlueStroke();
+            } else {
+                removeBlueStroke();
+            }
+        }
+
+        // Load default image on page load
+        loadImage();
+    </script>
+</body>
+</html>

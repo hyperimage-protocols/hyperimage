@@ -7,12 +7,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .container {
     border: 2px solid white;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     /* Size set by JavaScript */
 }
 
@@ -23,6 +24,8 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    z-index: -1000;
+    overflow: hidden;
 }
 
 .perspective-lines .corner-line {
@@ -32,6 +35,12 @@ body {
 }
 
 .perspective-lines .floor-line {
+    stroke: white;
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+}
+
+.perspective-lines .ceiling-line {
     stroke: white;
     stroke-width: 1;
     vector-effect: non-scaling-stroke;
@@ -70,6 +79,8 @@ body {
     max-height: 50%;
     object-fit: contain;
     vector-effect: non-scaling-stroke;
+    position: relative;
+    z-index: 1000;
 }
 
 .position-overlay {

@@ -5,15 +5,23 @@ const depthLineInterval = 0.2; // Distance between horizontal depth lines
 const floorLineCount = 10; // Number of lines connecting bottom edges
 const moveSpeed = 1.0; // Units per second of movement
 
+// Calculate camera distance from view window (in room units)
+// This is how far back the camera is from the front viewing plane
+function getCameraDistance(containerWidth) {
+    const halfFovRad = (fovAngle / 2) * (Math.PI / 180);
+    const cameraDistancePixels = (containerWidth / 2) / Math.tan(halfFovRad);
+    return cameraDistancePixels / containerWidth; // Convert to room units
+}
+
 // Create container div
 const container = document.createElement('div');
 container.className = 'container';
 document.body.appendChild(container);
 
-// Set container size based on window (minus 10px margin on all sides)
+// Set container size to fill entire window
 function updateContainerSize() {
-    container.style.width = (window.innerWidth - 20) + 'px';
-    container.style.height = (window.innerHeight - 20) + 'px';
+    container.style.width = window.innerWidth + 'px';
+    container.style.height = window.innerHeight + 'px';
 }
 updateContainerSize();
 window.addEventListener('resize', () => {
@@ -49,30 +57,68 @@ for (let i = 0; i < floorLineCount; i++) {
     floorLines.push(line);
 }
 
+// Create ceiling lines (connecting top edges)
+const ceilingLines = [];
+for (let i = 0; i < floorLineCount; i++) {
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('class', 'ceiling-line');
+    svg.appendChild(line);
+    ceilingLines.push(line);
+}
+
 // Create depth divs (rectangular divs at regular distances on the floor)
 const depthDivs = [];
+let tileIndex = 0;
 for (let distance = depthLineInterval; distance <= roomDepth; distance += depthLineInterval) {
     const div = document.createElement('div');
     div.className = 'floor-tile';
     div.id = `floor-${distance.toFixed(2)}`;
+    // Assign z-index: furthest tiles get lower z-index, closest get higher
+    // Use negative values so objects can be positive
+    div.style.zIndex = -(100 + tileIndex);
     container.appendChild(div);
     depthDivs.push({ div, distance });
+    tileIndex++;
 }
 
 // Add an object to the middle floor tile
 const middleIndex = Math.floor(depthDivs.length / 2);
 console.log(`Total tiles: ${depthDivs.length}, Middle index: ${middleIndex}`);
 if (middleIndex >= 0 && middleIndex < depthDivs.length) {
-    const img = document.createElement('img');
-    img.src = 'svg/3d-wireframe/viennese-lion-3d-wireframe.svg';
-    img.className = 'floor-object';
-    depthDivs[middleIndex].div.appendChild(img);
-    console.log(`Added object to tile at distance: ${depthDivs[middleIndex].distance}`);
+    const obj = document.createElement('object');
+    obj.data = 'svg/3d-wireframe/viennese-lion-3d-wireframe.svg';
+    obj.type = 'image/svg+xml';
+    obj.style.maxWidth = '40%';
+    obj.style.maxHeight = '100%';
+    obj.style.pointerEvents = 'none';
+
+    // When SVG loads, style polygons with cyan fill and black stroke
+    obj.onload = function() {
+        try {
+            const svgDoc = obj.contentDocument;
+            if (svgDoc) {
+                const polygons = svgDoc.querySelectorAll('polygon');
+                polygons.forEach(polygon => {
+                    polygon.setAttribute('fill', '#00ffff');
+                    polygon.setAttribute('stroke', '#000000');
+                    polygon.setAttribute('stroke-width', '1');
+                    polygon.setAttribute('vector-effect', 'non-scaling-stroke');
+                });
+                console.log(`Styled ${polygons.length} polygons`);
+            }
+        } catch (e) {
+            console.error('Could not access SVG content:', e);
+        }
+    };
+
+    depthDivs[middleIndex].div.appendChild(obj);
+    console.log(`Added SVG object to tile at distance: ${depthDivs[middleIndex].distance}`);
 }
 
 // Create back wall div
 const backWall = document.createElement('div');
 backWall.className = 'center-box';
+backWall.style.zIndex = -200; // Behind all floor tiles
 container.appendChild(backWall);
 
 // Create position overlay
@@ -169,13 +215,17 @@ function drawFloorLines() {
     const containerBottomY = 100;
     const backWallBottomY = 50 + halfHeight;
 
+    // Top edges: container is at y=0, back wall is at y=50-halfHeight
+    const containerTopY = 0;
+    const backWallTopY = 50 - halfHeight;
+
     // X coordinates: container is 0 to 100, back wall is (50-halfWidth) to (50+halfWidth)
     const containerLeftX = 0;
     const containerRightX = 100;
     const backWallLeftX = 50 - halfWidth;
     const backWallRightX = 50 + halfWidth;
 
-    // Draw evenly spaced lines
+    // Draw evenly spaced lines on floor
     for (let i = 0; i < floorLineCount; i++) {
         const t = i / (floorLineCount - 1); // 0 to 1
 
@@ -190,12 +240,29 @@ function drawFloorLines() {
         floorLines[i].setAttribute('x2', backWallX + '%');
         floorLines[i].setAttribute('y2', backWallBottomY + '%');
     }
+
+    // Draw evenly spaced lines on ceiling
+    for (let i = 0; i < floorLineCount; i++) {
+        const t = i / (floorLineCount - 1); // 0 to 1
+
+        // Point on container top edge
+        const containerX = containerLeftX + t * (containerRightX - containerLeftX);
+
+        // Corresponding point on back wall top edge
+        const backWallX = backWallLeftX + t * (backWallRightX - backWallLeftX);
+
+        ceilingLines[i].setAttribute('x1', containerX + '%');
+        ceilingLines[i].setAttribute('y1', containerTopY + '%');
+        ceilingLines[i].setAttribute('x2', backWallX + '%');
+        ceilingLines[i].setAttribute('y2', backWallTopY + '%');
+    }
 }
 
 // Position and size the floor tile divs
 function updateDepthDivs() {
     const containerWidth = parseFloat(container.style.width);
     const containerHeight = parseFloat(container.style.height);
+    const cameraDistance = getCameraDistance(containerWidth);
 
     for (let i = 0; i < depthDivs.length; i++) {
         const { div, distance } = depthDivs[i];
@@ -203,8 +270,9 @@ function updateDepthDivs() {
         // Calculate distance from current position to this tile
         const distanceToTile = distance - currentPosition;
 
-        // If tile is behind us or at our position, hide it
-        if (distanceToTile <= 0) {
+        // Tile is only hidden if it's behind the CAMERA position (not just behind the view window)
+        // The camera is 'cameraDistance' units behind the view window
+        if (distanceToTile <= -cameraDistance) {
             div.style.display = 'none';
             continue;
         }
@@ -230,6 +298,7 @@ function updateDepthDivs() {
         div.style.height = divHeight + 'px';
         div.style.left = left + 'px';
         div.style.top = top + 'px';
+        div.style.opacity = 1.0;
     }
 }
 
