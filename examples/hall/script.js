@@ -29,7 +29,7 @@ window.addEventListener('resize', () => {
     updateBackWall();
     drawCornerLines();
     drawFloorLines();
-    updateDepthDivs();
+    updateDepthPlanes();
 });
 
 // Create SVG for lines
@@ -66,54 +66,80 @@ for (let i = 0; i < floorLineCount; i++) {
     ceilingLines.push(line);
 }
 
-// Create depth divs (rectangular divs at regular distances on the floor)
-const depthDivs = [];
-let tileIndex = 0;
+// Create depth planes (rectangular divs at regular distances that you pass through)
+const depthPlanes = [];
+let planeIndex = 0;
 for (let distance = depthLineInterval; distance <= roomDepth; distance += depthLineInterval) {
     const div = document.createElement('div');
-    div.className = 'floor-tile';
-    div.id = `floor-${distance.toFixed(2)}`;
-    // Assign z-index: furthest tiles get lower z-index, closest get higher
+    div.className = 'depth-plane';
+    div.id = `plane-${distance.toFixed(2)}`;
+    // Assign z-index: furthest planes get lower z-index, closest get higher
     // Use negative values so objects can be positive
-    div.style.zIndex = -(100 + tileIndex);
+    div.style.zIndex = -(100 + planeIndex);
     container.appendChild(div);
-    depthDivs.push({ div, distance });
-    tileIndex++;
+    depthPlanes.push({ div, distance });
+    planeIndex++;
 }
 
-// Add an object to the middle floor tile
-const middleIndex = Math.floor(depthDivs.length / 2);
-console.log(`Total tiles: ${depthDivs.length}, Middle index: ${middleIndex}`);
-if (middleIndex >= 0 && middleIndex < depthDivs.length) {
-    const obj = document.createElement('object');
-    obj.data = 'svg/3d-wireframe/viennese-lion-3d-wireframe.svg';
-    obj.type = 'image/svg+xml';
-    obj.style.maxWidth = '40%';
-    obj.style.maxHeight = '100%';
-    obj.style.pointerEvents = 'none';
+// Add statues to multiple depth planes, alternating left and right
+const statueSvgs = [
+    'svg/warsaw/warszawianka-Apollo.svg',
+    'svg/warsaw/warszawianka-Hermes.svg',
+    'svg/warsaw/warszawianka-Athena.svg',
+    'svg/warsaw/warszawianka-Aphrodite.svg',
+    'svg/warsaw/warszawianka-Ares.svg',
+    'svg/warsaw/warszawianka-Hera.svg'
+];
 
-    // When SVG loads, style polygons with cyan fill and black stroke
-    obj.onload = function() {
-        try {
-            const svgDoc = obj.contentDocument;
-            if (svgDoc) {
-                const polygons = svgDoc.querySelectorAll('polygon');
-                polygons.forEach(polygon => {
-                    polygon.setAttribute('fill', '#00ffff');
-                    polygon.setAttribute('stroke', '#000000');
-                    polygon.setAttribute('stroke-width', '1');
-                    polygon.setAttribute('vector-effect', 'non-scaling-stroke');
-                });
-                console.log(`Styled ${polygons.length} polygons`);
+// Spread 6 statues evenly through the room, alternating sides
+const numStatues = 6;
+const planesPerStatue = Math.floor(depthPlanes.length / numStatues);
+
+for (let i = 0; i < numStatues; i++) {
+    const planeIndex = i * planesPerStatue + Math.floor(planesPerStatue / 2);
+
+    if (planeIndex >= 0 && planeIndex < depthPlanes.length) {
+        const isLeft = (i % 2 === 0); // Alternate: even indices on left, odd on right
+
+        // Create a container div for the object
+        const objectContainer = document.createElement('div');
+        objectContainer.className = isLeft ? 'object-container-left' : 'object-container-right';
+
+        // Create the SVG object
+        const obj = document.createElement('object');
+        obj.data = statueSvgs[i];
+        obj.type = 'image/svg+xml';
+        obj.className = 'room-object';
+        obj.style.pointerEvents = 'none';
+
+        console.log(`Loading statue ${i}: ${statueSvgs[i]} on ${isLeft ? 'left' : 'right'} at plane ${planeIndex}`);
+
+        // When SVG loads, style elements with object color using fills only
+        obj.onload = function() {
+            try {
+                const svgDoc = obj.contentDocument;
+                if (svgDoc) {
+                    const paths = svgDoc.querySelectorAll('path, polygon, polyline, circle, rect, ellipse');
+                    const objectColor = getComputedStyle(document.documentElement).getPropertyValue('--object-color').trim();
+                    paths.forEach(element => {
+                        // Remove any inline style that might override
+                        element.removeAttribute('style');
+                        element.setAttribute('fill', objectColor);
+                        element.setAttribute('stroke', 'none');
+                    });
+                    console.log(`Styled ${paths.length} SVG elements with object color (fill only)`);
+                }
+            } catch (e) {
+                console.error('Could not access SVG content:', e);
             }
-        } catch (e) {
-            console.error('Could not access SVG content:', e);
-        }
-    };
+        };
 
-    depthDivs[middleIndex].div.appendChild(obj);
-    console.log(`Added SVG object to tile at distance: ${depthDivs[middleIndex].distance}`);
+        objectContainer.appendChild(obj);
+        depthPlanes[planeIndex].div.appendChild(objectContainer);
+    }
 }
+
+console.log(`Added ${numStatues} statues to room`);
 
 // Create back wall div
 const backWall = document.createElement('div');
@@ -128,6 +154,34 @@ document.body.appendChild(positionOverlay);
 
 // Position in room: starts at 0.0, goes to roomDepth
 let currentPosition = 0.0;
+// Current room number: starts at 1
+let currentRoom = 1;
+
+// Store hue values for each room (room number -> {roomHue, objectHue})
+const roomHues = new Map();
+
+// Get or generate hues for a room
+function getRoomHues(roomNumber) {
+    if (!roomHues.has(roomNumber)) {
+        // Generate random hue for room (0-360 degrees)
+        const roomHue = Math.floor(Math.random() * 360);
+        // Object hue is exactly opposite on the color wheel (180 degrees)
+        const objectHue = (roomHue + 180) % 360;
+        roomHues.set(roomNumber, { roomHue, objectHue });
+    }
+    return roomHues.get(roomNumber);
+}
+
+// Apply room color theme
+function applyRoomTheme() {
+    const hues = getRoomHues(currentRoom);
+    const roomColor = `hsl(${hues.roomHue}, 100%, 50%)`;
+    const objectColor = `hsl(${hues.objectHue}, 100%, 50%)`;
+
+    // Update all visual elements with the room's colors
+    document.documentElement.style.setProperty('--room-color', roomColor);
+    document.documentElement.style.setProperty('--object-color', objectColor);
+}
 
 // Calculate perspective scale factor at a given location
 function getScaleFactor(location) {
@@ -158,7 +212,7 @@ function updateBackWall() {
     backWall.style.height = (containerHeight * scale) + 'px';
 
     // Update position overlay
-    positionOverlay.textContent = `Position: ${currentPosition.toFixed(2)} / ${roomDepth.toFixed(2)}`;
+    positionOverlay.textContent = `Room ${currentRoom} | Position: ${currentPosition.toFixed(2)} / ${roomDepth.toFixed(2)}`;
 }
 
 // Draw lines connecting container corners to back wall corners
@@ -258,30 +312,30 @@ function drawFloorLines() {
     }
 }
 
-// Position and size the floor tile divs
-function updateDepthDivs() {
+// Position and size the depth plane divs
+function updateDepthPlanes() {
     const containerWidth = parseFloat(container.style.width);
     const containerHeight = parseFloat(container.style.height);
     const cameraDistance = getCameraDistance(containerWidth);
 
-    for (let i = 0; i < depthDivs.length; i++) {
-        const { div, distance } = depthDivs[i];
+    for (let i = 0; i < depthPlanes.length; i++) {
+        const { div, distance } = depthPlanes[i];
 
-        // Calculate distance from current position to this tile
-        const distanceToTile = distance - currentPosition;
+        // Calculate distance from current position to this plane
+        const distanceToPlane = distance - currentPosition;
 
-        // Tile is only hidden if it's behind the CAMERA position (not just behind the view window)
+        // Plane is only hidden if it's behind the CAMERA position (not just behind the view window)
         // The camera is 'cameraDistance' units behind the view window
-        if (distanceToTile <= -cameraDistance) {
+        if (distanceToPlane <= -cameraDistance) {
             div.style.display = 'none';
             continue;
         }
 
-        // Show the tile
+        // Show the plane
         div.style.display = 'flex'; // Use flex to enable centering
 
         // Convert distance to location (0.0 to 1.0 scale relative to roomDepth)
-        const location = distanceToTile / roomDepth;
+        const location = distanceToPlane / roomDepth;
 
         // Get scale factor at this location
         const scale = getScaleFactor(location);
@@ -290,23 +344,21 @@ function updateDepthDivs() {
         const divWidth = containerWidth * scale;
         const divHeight = containerHeight * scale;
 
-        // Position centered
-        const left = (containerWidth - divWidth) / 2;
-        const top = (containerHeight - divHeight) / 2;
-
+        // Position centered using same method as back wall
         div.style.width = divWidth + 'px';
         div.style.height = divHeight + 'px';
-        div.style.left = left + 'px';
-        div.style.top = top + 'px';
+        div.style.left = '50%';
+        div.style.top = '50%';
         div.style.opacity = 1.0;
     }
 }
 
 // Initialize
+applyRoomTheme();
 updateBackWall();
 drawCornerLines();
 drawFloorLines();
-updateDepthDivs();
+updateDepthPlanes();
 
 // Keyboard controls
 const keysPressed = { ArrowUp: false, ArrowDown: false };
@@ -335,24 +387,43 @@ function animate(currentTime) {
     let changed = false;
 
     // Move forward (up arrow)
-    if (keysPressed.ArrowUp && currentPosition < roomDepth) {
+    if (keysPressed.ArrowUp) {
         currentPosition += moveSpeed * deltaTime;
-        if (currentPosition > roomDepth) currentPosition = roomDepth;
-        changed = true;
+
+        // Check if we've passed through to the next room
+        if (currentPosition > roomDepth) {
+            currentRoom++;
+            currentPosition = 0.0; // Reset to beginning of new room
+            applyRoomTheme(); // Update colors for new room
+            changed = true;
+        } else {
+            changed = true;
+        }
     }
 
     // Move backward (down arrow)
-    if (keysPressed.ArrowDown && currentPosition > 0.0) {
+    if (keysPressed.ArrowDown) {
         currentPosition -= moveSpeed * deltaTime;
-        if (currentPosition < 0.0) currentPosition = 0.0;
-        changed = true;
+
+        // Check if we've moved back into the previous room
+        if (currentPosition < 0.0 && currentRoom > 1) {
+            currentRoom--;
+            currentPosition = roomDepth; // Start at end of previous room
+            applyRoomTheme(); // Update colors for previous room
+            changed = true;
+        } else if (currentPosition < 0.0) {
+            currentPosition = 0.0; // Can't go before room 1
+            changed = true;
+        } else {
+            changed = true;
+        }
     }
 
     if (changed) {
         updateBackWall();
         drawCornerLines();
         drawFloorLines();
-        updateDepthDivs();
+        updateDepthPlanes();
     }
 
     requestAnimationFrame(animate);
