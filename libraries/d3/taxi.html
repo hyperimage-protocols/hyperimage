@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3.js Taxi Data Visualization</title>
+    <link rel="stylesheet" href="taxi.css">
+</head>
+<body>
+    <div id="chart"></div>
+
+    <div class="controls-overlay">
+        <div class="control-item">
+            <label for="repulsion-slider">Repulsion Force: <span id="repulsion-value">100</span></label>
+            <input type="range" id="repulsion-slider" min="1" max="250" value="100" step="5">
+        </div>
+
+        <div class="control-item">
+            <div class="radio-group metric-group">
+                <div class="radio-item">
+                    <input type="radio" id="metric-price" name="metric" value="price" checked>
+                    <label for="metric-price">Avg Fare</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="metric-time" name="metric" value="time">
+                    <label for="metric-time">Avg Duration</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-item">
+            <div class="radio-group" id="borough-filters"></div>
+        </div>
+    </div>
+
+    <!-- D3.js library from CDN -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="taxi.js"></script>
+</body>
+</html>
